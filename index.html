@@ -7,76 +7,98 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
         }
-        h1 {
-            color: #2E8B57;
-        }
-        form {
-            margin-bottom: 20px;
-        }
-        label {
-            margin-right: 10px;
-        }
-        input[type="text"] {
-            padding: 5px;
-            margin-right: 10px;
-        }
-        input[type="submit"] {
-            padding: 5px 10px;
+        header {
             background-color: #2E8B57;
             color: white;
-            border: none;
-            cursor: pointer;
+            padding: 10px 0;
+            text-align: center;
         }
-        input[type="submit"]:hover {
-            background-color: #3CB371;
+        .container {
+            width: 80%;
+            margin: 20px auto;
         }
-        h2 {
-            margin-top: 30px;
+        .product {
+            display: inline-block;
+            width: 30%;
+            margin: 10px;
+            background-color: white;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
-        ul {
-            list-style-type: disc;
-            margin-left: 20px;
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+        .product h3 {
+            color: #2E8B57;
+        }
+        .product p {
+            color: #555;
+        }
+        .product .price {
+            font-weight: bold;
+            color: #2E8B57;
+        }
+        .product .seller-info {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #777;
+        }
+        .product .seller-info span {
+            display: block;
+        }
+        .product .seller-info .verified {
+            color: green;
+        }
+        .product .seller-info .unverified {
+            color: red;
         }
     </style>
 </head>
 <body>
-    <h1>EcoShopper</h1>
-    <form id="scanForm">
-        <label for="barcode">Enter Barcode:</label>
-        <input type="text" id="barcode" name="barcode" required>
-        <input type="submit" value="Scan">
-    </form>
-    <div id="productInfo"></div>
+    <header>
+        <h1>EcoShopper</h1>
+        <p>Your Direct Connection to Organic Products</p>
+    </header>
+    <div class="container">
+        <div class="product">
+            <img src="eco-friendly-shirt.jpg" alt="Eco-Friendly Shirt">
+            <h3>Eco-Friendly Shirt</h3>
+            <p>Made from 100% organic cotton.</p>
+            <p class="price">$25.00</p>
+            <div class="seller-info">
+                <span>Seller: Green Threads</span>
+                <span class="verified">Verified Seller</span>
+            </div>
+        </div>
+        <div class="product">
+            <img src="bamboo-chair.jpg" alt="Bamboo Chair">
+            <h3>Bamboo Chair</h3>
+            <p>Handcrafted from sustainable bamboo.</p>
+            <p class="price">$75.00</p>
+            <div class="seller-info">
+                <span>Seller: Bamboo Creations</span>
+                <span class="unverified">Unverified Seller</span>
+            </div>
+        </div>
+        <div class="product">
+            <img src="organic-apples.jpg" alt="Organic Apples">
+            <h3>Organic Apples</h3>
+            <p>Freshly picked from local farms.</p>
+            <p class="price">$10.00</p>
+            <div class="seller-info">
+                <span>Seller: Fresh Farms</span>
+                <span class="verified">Verified Seller</span>
+            </div>
+        </div>
+    </div>
     <script>
-        document.getElementById('scanForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const barcode = document.getElementById('barcode').value;
-            const products = {
-                '123456789012': {
-                    name: 'Eco-Friendly Shampoo',
-                    rating: 'A',
-                    alternatives: ['Alternative Shampoo 1', 'Alternative Shampoo 2']
-                },
-                '987654321098': {
-                    name: 'Regular Plastic Bottle',
-                    rating: 'D',
-                    alternatives: ['Reusable Bottle', 'Glass Bottle']
-                }
-            };
-            const product = products[barcode] || { name: 'Unknown Product', rating: 'N/A', alternatives: [] };
-            const productInfoDiv = document.getElementById('productInfo');
-            productInfoDiv.innerHTML = `
-                <h2>Product Information</h2>
-                <p><strong>Name:</strong> ${product.name}</p>
-                <p><strong>Eco Rating:</strong> ${product.rating}</p>
-                <h3>Alternatives:</h3>
-                <ul>
-                    ${product.alternatives.map(alt => `<li>${alt}</li>`).join('')}
-                </ul>
-            `;
-        });
+        // JavaScript to handle dynamic content and interactions can be added here
     </script>
 </body>
 </html>
